@@ -31,5 +31,5 @@ class PostDetail(DetailView):
 #         }
 #     )
 
-def post_list(request):
-    posts = Post.objects.all()
+# def post_list(request):
+#     posts = Post.objects.all()
