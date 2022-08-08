@@ -1,6 +1,13 @@
 .margin-for-footer {
     margin-bottom: 130px;
 }
+
+
 body {
-    background-color: gray;
+    background: url('/static/single_pages/images/ddd.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    /* background-color: gray; */
 }
