@@ -1,9 +1,44 @@
 {% extends "blog/base.html" %}
-{% block head_title %} {{ post.title }} -Blog {% ednblock %}
+{% block head_title %} {{ post.title }} -Blog {% endblock %}
 {% block main_area %}
-    <h1>{{ post.title }}</h1>
+  <div id="post-area">
+
+{% if post.head_image %}
+    <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image">
+{% else %}
+    <img class="img-fluid rounded" src="https://picsum.photos/seed{{ post.id }}" alt="random_image">
+{% endif %}
+    <h1 class="mt-4">{{ post.title }}</h1>
+    <h5 class="text-muted">{{ post.hook_text }}</h5>
     <h4>{{ post.created_at }}</h4>
     <p>{{ post.content }}</p>
-    <hr/>
-    <h3>댓글자리</h3>
+    {% if post.file_upload %}
+    <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button">
+      Download:
+
+      {% if post.file_upload %}
+        <a href="{{ post.file_upload.url }}" class="btn btn-warning" role="button" download>
+            Download:
+
+            {% if post.get_file_ext == 'csv'%}
+                <i class = "fas fa-file-csv"></i>
+            {% elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                <i class = "fas fa-file-excel"></i>
+            {% elif post.get_file_ext == 'docx' or post.get_file_ext == 'doc' %}
+                <i class = "fas fa-file-word"></i>
+            {% else %}
+                <i class="far fa-file"></i>
+            {% endif %}
+
+            {{ post.get_file_name }}
+        </a>    
+      {% endif %}
+
+    {% endif %}  
+    <hr>
+  </div>
+  <div id="comment-area">
+    <div class="media mb-4">
+    </div>
+  </div>
 {% endblock %}
