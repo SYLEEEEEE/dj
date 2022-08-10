@@ -23,6 +23,15 @@
     <hr>
     <p>{{ post.content }}</p>
     <hr>
+    {% if post.tags.exists %}
+      <i class="fas fa-tags"></i>
+      {% for tag in post.tags.all %}
+        <a href="{{ tag.get_absolute_url }}"><span class="badge badge-pill badge-light">{{ tag }}</span></a>
+      {% endfor %}
+      <br/>
+      <br/>
+    {% endif %}
+
     {% if post.file_upload %}
       <a href="{{ post.file_upload.url }}" class="btn btn-warning" role="button" download>
         Download:
