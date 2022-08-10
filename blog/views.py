@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post, Category
 from django.views.generic import ListView, DetailView
-
+#CBV
 class PostList(ListView):
     model = Post
     ordering= '-pk'
@@ -12,7 +12,7 @@ class PostList(ListView):
         context['categories'] = Category.objects.all()
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
-
+#FBV function based view
 def category_page(request, slug):
     if slug == 'no_category':
         category = '미분류'
@@ -31,7 +31,7 @@ def category_page(request, slug):
             'category': category,
         }
     )
-
+#CBV
 class PostDetail(DetailView):
     model = Post
 
@@ -41,26 +41,4 @@ class PostDetail(DetailView):
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
 
-# def single_post_page(request, pk):
-#     post = Post.object.get(pk=pk)
 
-#     return render(
-#         request,
-#         'blog/single_post_page.html',
-#         {
-#             'post':post,
-#         }
-    # )
-# def index(request):
-#     posts = Post.objects.all()
-
-#     return render(
-#         request,
-#         'blog/index.html',
-#         {
-#             'posts':posts,
-#         }
-#     )
-
-# def post_list(request):
-#     posts = Post.objects.all()

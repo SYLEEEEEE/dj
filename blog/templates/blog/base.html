@@ -3,7 +3,13 @@
 <html lang="ko">
 <style>
     body {
-        padding-top: 50px
+        padding-top: 50px;
+        background: url('/static/single_pages/images/ssss.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        /* background-color: gray; */
     }
 </style>
 <head>
@@ -16,39 +22,10 @@
     {% include "blog/navbar.html" %}
     <div class="container my-3">
         <div class="row">
-    {% block main_area %} {% endblock %}
-            <div class="col-md-4 col-lg-3">
-                <!-- Search Widget -->
-                <div class="card my-4">
-                    <h5 class="card-header">Search</h5>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button">Go!</button>
-                            </span>
-                        </div>
-                    </div>
-                </div>        
-            <!-- Categories Widget -->
-                <div class="card my-4" id="categories-card">
-                    <h5 class="card-header">Categories</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <ul>
-                            {% for category in categories %}  
-                                <li>
-                                <a href="{{ category.get_absolute_url }}">{{ category }} ({{ category.post_set.count }})</a>
-                                </li>
-                            {% endfor %}
-                                <li>
-                                <a href="/blog/category/no_category/">미분류 ({{ no_category_post_count }})</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+            <div class="col-md-8 col-lg-9" id="main-area">
+                {% block main_area %} {% endblock %}
+            </div>
+            {% include "blog/sidebar.html" %}
         </div>
     </div>
     {% include "blog/footer.html" %}
