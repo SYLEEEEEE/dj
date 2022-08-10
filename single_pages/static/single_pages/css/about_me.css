@@ -4,7 +4,8 @@
 
 
 body {
-    background: url('/static/single_pages/images/dddd.jpg') no-repeat center center fixed;
+    padding-top: 50px;
+    background: url('/static/single_pages/images/ss.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

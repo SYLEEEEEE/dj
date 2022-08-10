@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ko">
+<style>
+    body {
+        padding-top: 50px
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>{% block head_title %}Blog{% endblock %}</title>
@@ -9,7 +14,6 @@
 </head>
 <body>
     {% include "blog/navbar.html" %}
-    
     {% block main_area %} {% endblock %}
     {% include "blog/footer.html" %}
 
