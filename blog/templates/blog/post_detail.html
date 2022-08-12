@@ -62,6 +62,7 @@
     <div class="card-body">
       {% if user.is_authenticated %}
         <form if="comment-form" method="POST" action="{{ post.get_absolute_url }}new_comment/">
+          {% csrf_token %}
           <div class="form-group">
             {{ comment_form | crispy }}
           </div>
