@@ -26,7 +26,7 @@
     <img class="img-fluid rounded" src="https://picsum.photos/seed/{{ post.id }}800/200" alt="random_image">
     {% endif %}        
     <hr>
-    <p>{{ post.content }}</p>
+    <p>{{ post.get_content_markdown | safe }}</p>
     <hr>
     {% if post.tags.exists %}
       <i class="fas fa-tags"></i>
