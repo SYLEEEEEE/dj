@@ -139,7 +139,7 @@ class PostDetail(DetailView):
         return context
 
 def new_comment(request, pk):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated: # 유저인증
         post = get_object_or_404(Post, pk=pk)
 
         if request.method == 'POST':
