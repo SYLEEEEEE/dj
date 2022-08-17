@@ -172,4 +172,4 @@ def delete_comment(request, pk):
         comment.delete()
         return redirect(post.get_absolute_url())
     else:
-        raise PermissionDenied
+        raise PermissionDenied # 요청한 유저가 코멘트 작성자가 아니면 허가거부
