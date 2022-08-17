@@ -16,30 +16,40 @@
       <source src='/static/single_pages/images/mc.mp4' type="video/mp4">
     </video>
   </div> {% endcomment %}
-  <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/">^_^</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog/"><i class="fa-duotone fa-rocket-launch"></i>Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about_me/"><i class="fa-duotone fa-rocket-launch"></i>About Me</a>
-        </li>
-      </ul>
+{% include 'blog/navbar.html' %}
+<section>
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-6 text-light">
+        <h1 class="mt-5">Welcome</h1>
+        <p></p>
+      </div>
+      <div class="col-lg-5 mt-5">
+        <h2 class="text-light">Blog - Recent posts</h2>
+        {% for post in recent_posts %}
+        <div class="card mt-1">
+          <div class="card body">
+            <h6><a href="{{ post.get_absolute_url }}" class="text-decotation-none text-dark">{{ post.title }}</a></h6>
+            <span class="badge badge-pill badge-light float-right">
+              {{ post.author.username }}
+              &nbsp;
+              &nbsp;
+              {{ post.created_at }}
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
-  </nav>
-    <!-- <div class="container"> -->
-    <!-- </div> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  </div>
+</section>
+
+
+<div class="fixed-bottom">
+{% include 'blog/footer.html' %}
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
-    <h1>뭐라고 할까요 관심사가 없어요</h1>
 </body>
 </html>
