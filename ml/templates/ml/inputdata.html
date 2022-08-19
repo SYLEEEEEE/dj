@@ -1,0 +1,34 @@
+{% extends 'blog/base_full_width.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}Program {% endblock %}
+
+{% block main_area %}
+    <h1>타이타닉 생존자 예측</h1>
+    <hr/>
+    
+        <form action="{% url 'ml_result' %}" method="GET">
+            fare_cat:  <input type="text" name='fare_cat' ><br><br>
+            age_cat:   <input type="text" name='age_cat'><br><br>
+            family:    <input type="text" name='family'><br><br>
+            sex_female:<input type="text" name='sex_female'><br><br>
+            sex_male:  <input type="text" name='sex_male'><br><br>
+            embarked_C:<input type="text" name='embarked_C'><br><br>
+            embarked_Q:<input type="text" name='embarked_Q'><br><br>
+            embarked_S:<input type="text" name='embarked_S'><br><br>
+            <button class="btn btn-secondary" type="submit" onclick="ml();">Result</button>
+        </form>
+
+{% endblock %}
+{% comment %} 네비바 푸터 다적용하고 내용만 입력하는 화면 만드셈 {% endcomment %}
+
+<script>
+    function ml(){
+        let inputValue = document.getElementById('ml-input')
+    };
+
+    document.getElementById('ml-input').addEventListener('keyup', function(event){
+        if(event.key === 'Enter'){
+            ml();
+        }
+    });
+</script>
