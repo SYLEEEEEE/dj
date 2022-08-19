@@ -1,2 +1,11 @@
-네비바 푸터
-가운데다가 결과값만 출력되게끔
+{% extends 'blog/base_full_width.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}Program Result{% endblock %}
+
+{% block main_area %}
+    <h1>Result</h1>
+    <hr/>
+    <h5> 넣은값:{{lis}}</h5>
+    <h5> 결과:{{ans}}</5>
+{% endblock %}
+{% comment %} 네비바 푸터 가운데다가 결과값만 출력되게끔 {% endcomment %}

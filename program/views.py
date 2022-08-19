@@ -13,3 +13,4 @@ def result(request):
         sum += int(i)
     ans = sum
     return render(request, 'program/result.html', {'ans':ans, 'lis':lis})
+    # return render(request, 'program/result.html')
